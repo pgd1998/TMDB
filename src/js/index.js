@@ -79,13 +79,13 @@ function back() {
   window.location.href = "index.html";
 }
 
-// function onClose() {
-//   var eraseMoviename = document.getElementById("movieName");
-//   var eraseMovieOverview = document.getElementById("movieOverview");
-//   var modal = document.getElementById("myModal");
-//   modal.style.display = "none";
-//   eraseMoviename.textContent = "";
-//   eraseMovieOverview.textContent = "";
-// }
+function onClose() {
+  // var eraseMoviename = document.getElementById("movieName");
+  // var eraseMovieOverview = document.getElementById("movieOverview");
+  // var modal = document.getElementById("myModal");
+  // modal.style.display = "none";
+  // eraseMoviename.textContent = "";
+  // eraseMovieOverview.textContent = "";
+}
 
 
