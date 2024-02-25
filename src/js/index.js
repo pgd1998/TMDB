@@ -28,7 +28,6 @@ function onClick() {
               };
             });
             localStorage.setItem("moviedetails", JSON.stringify(moviedetails));
-            console.log("movie details", localStorage.getItem("moviedetails"));
             window.location.href = "movieDetails.html";
           } else {
             alert("No movie found");
