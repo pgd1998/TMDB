@@ -22,7 +22,9 @@ function onClick() {
             const moviedetails = json.results.map((movie) => {
               return {
                 ...movie,
+                title: movie.title? movie.title : movie.name,
                 poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+                id: movie.id,
               };
             });
             localStorage.setItem("moviedetails", JSON.stringify(moviedetails));

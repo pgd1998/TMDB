@@ -39,11 +39,9 @@
             
             "bg-gray-50"
           );
-          // movieImage.src = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80";
           movieImage.src = movie.poster_path;
 
           movieImage.alt = "";
-
           const movieContent = document.createElement("div");
           movieContent.classList.add("min-w-0", "flex-auto");
 
@@ -78,7 +76,6 @@
             "text-gray-500"
           );
           const movieOverviewLink = document.createElement("a");
-          // movieOverviewLink.href = "mailto:leslie.alexander@example.com";
           movieOverviewLink.classList.add(
             "relative",
             "truncate",
@@ -92,7 +89,10 @@
 
           movieContainer.appendChild(movieImage);
           movieContainer.appendChild(movieContent);
-
+          movieContainer.addEventListener('click', function () {
+            localStorage.setItem('selectedMovie', JSON.stringify(movie));
+            window.location.href = 'movieTvShow.html'; 
+          });
           document.getElementById("movieDetails").appendChild(movieContainer);
         });
       };

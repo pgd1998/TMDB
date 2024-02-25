@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- I need to display each movie and its details -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../output.css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/movieTvShow.js"></script>
+    <title>Movie Details</title>
+  </head>
+
+  <body>
+    <div class="bg-white-100 p-6">
+      <script>
+        window.onload = function () {
+          const movie = JSON.parse(localStorage.getItem("selectedMovie"));
+
+          const movieContainer = document.createElement("div");
+
+          const movieTitle = document.createElement("h1");
+          movieTitle.textContent = movie.title;
+          movieContainer.appendChild(movieTitle);
+
+          const movieOverview = document.createElement("p");
+          movieOverview.textContent = movie.overview;
+          movieContainer.appendChild(movieOverview);
+
+          const movieImage = document.createElement("img");
+          movieImage.src = movie.poster_path;
+          movieContainer.appendChild(movieImage);
+
+          document.querySelector(".bg-white-100").appendChild(movieContainer);
+        };
+      </script>
+    </div>
+  </body>
+</html>
