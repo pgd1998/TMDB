@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Details Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <script type="text/javascript" src="../js/index.js"></script>
+  </head>
+
+  <body class="container-movie-details">
+    <div class="display-movie" id="movieDetails">
+      <div id="movieName"></div>
+      <div id="movieOverview"></div>
+    </div>
+    <button class="button-container" onclick="back()">Back</button>
+    <script>
+      window.onload = function () {
+        const moviedetails = JSON.parse(localStorage.getItem("moviedetails"));
+        document.getElementById("movieName").textContent = moviedetails.title;
+        document.getElementById("movieOverview").textContent =
+          moviedetails.overview;
+      };
+    </script>
+    
+  </body>
+</html>

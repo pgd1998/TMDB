@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My First Webpage</title>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <script type="text/javascript" src="../js/index.js"></script>
   </head>
   <body class="container">
-    <div class="div-class">
-    <button class="button-container"  onclick="onClick()">Search</button>
+    <div class="toolbar">
+      
+        <button class="search-container" onclick="onClick()">&#128269;</button>
+      
     </div>
+    <br />
+
     <div id="myModal" class="modal-container">
-        <div class="modal-content">
-            <button class="close" onclick="onClose()">&times;</button>
-            <input type="text" id="search" name="search" placeholder="Search for a movie..">
-        </div>
-    </div>
-    <div class="display-movie" id="movieDetails">
-        <div id="movieName"></div>
-        <div id="movieOverview"></div>
+      <div class="modal-content">
+        <button class="close" onclick="onClose()">&times;</button>
+        <input
+          type="search"
+          id="search"
+          name="search"
+          placeholder="Search for a movie.."
+        />
+      </div>
     </div>
   </body>
 </html>
