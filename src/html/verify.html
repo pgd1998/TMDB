@@ -1,162 +1,95 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <link href="../output.css" rel="stylesheet" />
     <script type="text/javascript" src="../js/index.js"></script>
-  </head>
-  <body>
-    <div class="min-h-full">
-      <header class="bg-indigo-600 pb-24">
-        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div
-            class="relative flex items-center justify-center py-5 lg:justify-between"
-          >
-            <!-- Right section on desktop -->
-            <div class="hidden lg:ml-4 lg:flex lg:items-center lg:pr-0.5"></div>
+</head>
 
-            <!-- Menu button -->
-            <div class="absolute right-0 flex-shrink-0 lg:hidden">
-              <!-- Mobile menu button -->
-              <button
-                type="button"
-                class="relative inline-flex items-center justify-center rounded-md bg-transparent p-2 text-indigo-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                aria-expanded="false"
-              >
-                <span class="absolute -inset-0.5"></span>
-                <span class="sr-only">Open main menu</span>
-                <!-- Menu open: "hidden", Menu closed: "block" -->
-                <svg
-                  class="block h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-                <!-- Menu open: "block", Menu closed: "hidden" -->
-                <svg
-                  class="hidden h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+<body>
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="flex items-center px-2 lg:px-0">
+                    <!-- Add the logo of the website here -->
+                    <div class="hidden lg:ml-6 lg:block">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="index.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
+                            <a href="#"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Movies</a>
+                            <a href="#"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">TV
+                                Shows</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">
+                    <div class="w-full max-w-lg lg:max-w-xs">
+                        <label for="search" class="sr-only">Search</label>
+                        <div class="relative">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <!-- <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                        clip-rule="evenodd" />
+                                </svg> -->
+                            </div>
+                            <input id="search" name="search"
+                                class="block w-full rounded-md border-0 bg-gray-700 py-1.5 pl-10 pr-3 text-gray-300 placeholder:text-gray-400 focus:bg-white focus:text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
+                                placeholder="Search" type="search" onclick="onClick()">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex lg:hidden">
+                    <!-- Mobile menu button -->
+                    <button type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main menu</span>
+                        <!--
+                        Icon when menu is closed.
+                        Menu open: "hidden", Menu closed: "block"
+                        -->
+                        <!-- <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg> -->
+                        <!--
+                        Icon when menu is open.
+                        Menu open: "block", Menu closed: "hidden"
+                        -->
+                        <!-- <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg> -->
+                    </button>
+                </div>
+                <div class="hidden lg:ml-4 lg:block">
+                    <div class="flex items-center">
+                        <button type="button"
+                            class="relative flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                            <span class="absolute -inset-1.5"></span>
+                            <span class="sr-only">View notifications</span>
+                            <!-- <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                            </svg> -->
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div
-            class="hidden border-t border-white border-opacity-20 py-5 lg:block"
-          >
-            <div class="grid grid-cols-3 items-center gap-8">
-              <div class="col-span-2">
-                <nav class="flex space-x-4">
-                  <!-- Current: "text-white", Default: "text-indigo-100" -->
-                  <a
-                    href="index.html"
-                    class="text-white rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
-                    aria-current="page"
-                    >Home</a
-                  >
-                  <a
-                    href="#"
-                    class="text-indigo-100 rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
-                    >Movies</a
-                  >
-                  <a
-                    href="#"
-                    class="text-indigo-100 rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10"
-                    >TV Shows</a
-                  >
-                </nav>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <!-- Mobile menu, show/hide based on mobile menu state. -->
-        <!-- <div class="lg:hidden">
-          
-          <div
-            class="fixed inset-0 z-20 bg-black bg-opacity-25"
-            aria-hidden="true"
-          ></div>
-          <div
-            class="absolute inset-x-0 top-0 z-30 mx-auto w-full max-w-3xl origin-top transform p-2 transition"
-          >
-            <div
-              class="divide-y divide-gray-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
-            >
-              ive inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                    ><div class="pb-2 pt-3">
-                <div class="flex items-center justify-between px-4">
-                  <div>
-                    <img
-                      class="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                      alt="Your Company"
-                    />
-                  </div>
-                  <div class="-mr-2">
-                    <button
-                      type="button"
-                      class="relat
-                      <span class="absolute-inset-0.5"></span>
-                      <span class="sr-only">Close menu</span>
-                      <svg
-                        class="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="mt-3 space-y-1 px-2">
-                  <a
-                    href="index.html"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
-                    >Home</a
-                  >
-                  <a
-                    href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
-                    >Movies</a
-                  >
-                  <a
-                    href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
-                    >TV Shows</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
+        <!-- Mobile menu, show/hide based on menu state. -->
         <div class="lg:hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pb-3 pt-2">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Home</a>
+                <a href="index.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
                 <a href="#"
                     class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Movies</a>
                 <a href="#"
@@ -164,65 +97,67 @@
                     Shows</a>
             </div>
         </div>
-      </header>
-      <main class="-mt-24 pb-8">
+    </nav>
+
+    <main class="pb-8">
         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h1 class="sr-only">Page title</h1>
-          <!-- Main 3 column grid -->
-          <div
-            class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8"
-          >
-            <!-- Left column -->
-            <div class="grid grid-cols-1 gap-4 lg:col-span-2">
-              <section aria-labelledby="section-1-title">
-                <h2 class="sr-only" id="section-1-title">Section title</h2>
-                <div class="overflow-hidden rounded-lg bg-white shadow">
-                  <div class="p-6" id="movieImage">
-                    <!-- Your content -->
-                  </div>
+            <h1 class="sr-only">Page title</h1>
+            <!-- Main 3 column grid -->
+            <div class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
+                <!-- Left column -->
+                <div class="grid grid-cols-1 gap-4 ">
+                    <section aria-labelledby="section-1-title">
+                        <h2 class="sr-only" id="section-1-title">Section title</h2>
+                        <div class="overflow-hidden rounded-lg bg-white shadow">
+                            <div class="p-6" id="movieImage">
+                                <!-- Your content -->
+                            </div>
+                        </div>
+                    </section>
                 </div>
-              </section>
-            </div>
-
-            <!-- Right column -->
-            <div class="grid grid-cols-1 gap-4">
-              <section aria-labelledby="section-2-title">
-                <h2 class="sr-only" id="section-2-title">Section title</h2>
-                <div class="overflow-hidden rounded-lg bg-white shadow">
-                  <div class="p-6" id="movieDetails">
-                    <!-- Your content -->
-                  </div>
+                <!-- Right column -->
+                <div class="grid grid-cols-1 gap-4 lg:col-span-2" >
+                    <section aria-labelledby="section-2-title">
+                        <h2 class="sr-only" id="section-2-title">Section title</h2>
+                        <div class="overflow-hidden rounded-lg bg-white shadow">
+                            <div class="p-6" id="movieDetails">
+                                <!-- Your content -->
+                            </div>
+                        </div>
+                    </section>
                 </div>
-              </section>
             </div>
-          </div>
         </div>
-      </main>
-      <footer>
-        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"></div>
-      </footer>
-    </div>
+    </main>
     <script>
-      window.onload = function () {
-        const movie = JSON.parse(localStorage.getItem("selectedMovie"));
+        window.onload = function () {
+            const movie = JSON.parse(localStorage.getItem("selectedMovie"));
 
-        const movieContainer = document.createElement("div");
+            const movieContainer = document.createElement("div");
 
-        const movieTitle = document.createElement("h1");
-        movieTitle.textContent = movie.title;
-        movieContainer.appendChild(movieTitle);
+            const movieTitle = document.createElement("h1");
+            movieTitle.textContent = movie.title;
+            movieContainer.appendChild(movieTitle);
 
-        const movieOverview = document.createElement("p");
-        movieOverview.textContent = movie.overview;
-        movieContainer.appendChild(movieOverview);
+            const movieOverview = document.createElement("p");
+            movieOverview.textContent = movie.overview;
+            movieContainer.appendChild(movieOverview);
 
-        const movieImage = document.createElement("img");
-        movieImage.src = movie.poster_path;
-        movieContainer.appendChild(movieImage);
+            const movieImage = document.createElement("img");
+            movieImage.src = movie.poster_path;
+            movieContainer.appendChild(movieImage);
 
-        document.getElementById("movieImage").appendChild(movieImage);
-        document.getElementById("movieDetails").appendChild(movieContainer);
-      };
+            const movieProvider = document.createElement("h1");
+            const aeProviders = movie.providers.AE || [];
+            movieProvider.textContent = "Provider: " + aeProviders.join(', ');
+            movieContainer.appendChild(movieProvider);
+
+            document.getElementById("movieImage").appendChild(movieTitle);
+            document.getElementById("movieImage").appendChild(movieImage);
+            document.getElementById("movieImage").appendChild(movieProvider);
+            document.getElementById("movieDetails").appendChild(movieContainer);
+        };
     </script>
-  </body>
+</body>
+
 </html>

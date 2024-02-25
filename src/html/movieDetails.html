@@ -32,13 +32,7 @@
           );
 
           const movieImage = document.createElement("img");
-          movieImage.classList.add(
-            "h-16",
-            "w-16",
-            "flex-none",
-            
-            "bg-gray-50"
-          );
+          movieImage.classList.add("h-16", "w-16", "flex-none", "bg-gray-50");
           movieImage.src = movie.poster_path;
 
           movieImage.alt = "";
@@ -59,8 +53,7 @@
             "absolute",
             "inset-x-0",
             "-top-px",
-            "bottom-0",
-            
+            "bottom-0"
           );
           movieNameSpan.textContent = "";
           movieNameLink.appendChild(movieNameSpan);
@@ -83,15 +76,31 @@
           );
           movieOverviewLink.textContent = movie.overview;
           movieOverview.appendChild(movieOverviewLink);
+          // const movieProviders = document.createElement("div");
+          // movieProviders.classList.add(
+          //   "mt-1",
+          //   "flex",
+          //   "text-base",
+          //   "leading-5",
+          //   "text-gray-500"
+          // );
+          // Object.entries(movie.providers).forEach(([country, providers]) => {
+          //   const providerParagraph = document.createElement("p");
+          //   providerParagraph.textContent = `${country}: ${providers.join(
+          //     ", "
+          //   )}`;
+          //   movieProviders.appendChild(providerParagraph);
+          // });
+          // movieContent.appendChild(movieProviders);
 
           movieContent.appendChild(movieName);
           movieContent.appendChild(movieOverview);
-
+          
           movieContainer.appendChild(movieImage);
           movieContainer.appendChild(movieContent);
-          movieContainer.addEventListener('click', function () {
-            localStorage.setItem('selectedMovie', JSON.stringify(movie));
-            window.location.href = 'verify.html'; 
+          movieContainer.addEventListener("click", function () {
+            localStorage.setItem("selectedMovie", JSON.stringify(movie));
+            window.location.href = "verify.html";
           });
           document.getElementById("movieDetails").appendChild(movieContainer);
         });

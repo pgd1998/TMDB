@@ -19,16 +19,44 @@ function onClick() {
         .then((res) => res.json())
         .then((json) => {
           if (json.results && json.results.length > 0) {
-            const moviedetails = json.results.map((movie) => {
-              return {
-                ...movie,
-                title: movie.title? movie.title : movie.name,
-                poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-                id: movie.id,
-              };
+            const fetchPromises = json.results.map((result) => {
+              const providerUrl = `https://api.themoviedb.org/3/${result.media_type}/${result.id}/watch/providers`;
+              return fetch(providerUrl, options)
+                .then((res) => res.json())
+                .then((providerData) => {
+                  const countryProviders = providerData.results || {};
+                  const providers = Object.keys(countryProviders).reduce(
+                    (acc, country) => {
+                      const countryProvider = countryProviders[country];
+                      if (countryProvider.flatrate) {
+                        const providerNames = countryProvider.flatrate.map(
+                          (provider) => provider.provider_name
+                        );
+                        acc[country] = providerNames;
+                      }
+                      return acc;
+                    },
+                    {}
+                  );
+                  // Store provider details in the result object
+                  return {
+                    ...result,
+                    title: result.title ? result.title : result.name,
+                    poster_path: `https://image.tmdb.org/t/p/w500${result.poster_path}`,
+                    id: result.id,
+                    providers: providers,
+                  };
+                });
             });
-            localStorage.setItem("moviedetails", JSON.stringify(moviedetails));
-            window.location.href = "movieDetails.html";
+            Promise.all(fetchPromises)
+              .then((moviedetails) => {
+                localStorage.setItem(
+                  "moviedetails",
+                  JSON.stringify(moviedetails)
+                );
+                window.location.href = "movieDetails.html";
+              })
+              .catch((err) => console.error("error:" + err));
           } else {
             alert("No movie found");
           }
@@ -39,12 +67,16 @@ function onClick() {
   window.onclick = function (event) {
     var eraseMoviename = document.getElementById("movieName");
     var eraseMovieOverview = document.getElementById("movieOverview");
-    if (event.target == modal) {
-      modal.style.display = "none";
-      eraseMoviename.textContent = "";
-      eraseMovieOverview.textContent = "";
-    }
+    // if (event.target == modal) {
+    //   modal.style.display = "none";
+    //   eraseMoviename.textContent = "";
+    //   eraseMovieOverview.textContent = "";
+    // }
   };
+}
+
+function back() {
+  window.location.href = "index.html";
 }
 
 // function onClose() {
@@ -56,6 +88,4 @@ function onClick() {
 //   eraseMovieOverview.textContent = "";
 // }
 
-function back() {
-  window.location.href = "index.html";
-}
+
