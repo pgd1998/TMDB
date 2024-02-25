@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }

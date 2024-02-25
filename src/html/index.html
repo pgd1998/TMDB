@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/main.css" /> -->
+    <link href="../output.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/index.js"></script>
+  </head>
+<body class="container">
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+    <div class="toolbar">
+      
+      <button class="button-container" onclick="onOpen()">Search</button>
+    <br />
+
+    <div id="myModal" class="modal-container">
+      <div class="modal-content">
+        <button class="close" onclick="onClose()">&times;</button>
+        <input
+          type="search"
+          id="search"
+          name="search"
+          placeholder="Search for a movie.."
+        />
+      </div>
+    </div>
+  </body>
+</html>
