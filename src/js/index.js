@@ -1,11 +1,11 @@
 function onClick() {
-  var modal = document.getElementById("myModal");
-  modal.style.display = "block";
+  var search = document.getElementById("search");
+  
 
-  modal.addEventListener("keypress", function (event) {
+  search.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-      var movieName = document.getElementById("search").value;
-      const url = `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(
+      var movieName = search.value;
+      const url = `https://api.themoviedb.org/3/search/keyword?page=1&query=${encodeURIComponent(
         movieName
       )}`;
       const options = {
@@ -42,14 +42,14 @@ function onClick() {
   };
 }
 
-function onClose() {
-  var eraseMoviename = document.getElementById("movieName");
-  var eraseMovieOverview = document.getElementById("movieOverview");
-  var modal = document.getElementById("myModal");
-  modal.style.display = "none";
-  eraseMoviename.textContent = "";
-  eraseMovieOverview.textContent = "";
-}
+// function onClose() {
+//   var eraseMoviename = document.getElementById("movieName");
+//   var eraseMovieOverview = document.getElementById("movieOverview");
+//   var modal = document.getElementById("myModal");
+//   modal.style.display = "none";
+//   eraseMoviename.textContent = "";
+//   eraseMovieOverview.textContent = "";
+// }
 
 function back() {
   window.location.href = "index.html";
