@@ -54,7 +54,7 @@ function onClick() {
                   "moviedetails",
                   JSON.stringify(moviedetails)
                 );
-                window.location.href = "movieDetails.html";
+                window.location.href = "src/html/movieDetails.html";
               })
               .catch((err) => console.error("error:" + err));
           } else {
