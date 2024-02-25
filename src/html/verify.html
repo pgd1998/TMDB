@@ -138,7 +138,8 @@
             const movieTitle = document.createElement("h1");
             movieTitle.textContent = movie.title;
             movieContainer.appendChild(movieTitle);
-
+            const restructuredTitle = movie.title.split(' ').join('+');
+            const url=`https://w0.0123movies.digital/search/${restructuredTitle}`
             const movieOverview = document.createElement("p");
             movieOverview.textContent = movie.overview;
             movieContainer.appendChild(movieOverview);
@@ -148,14 +149,16 @@
             movieContainer.appendChild(movieImage);
 
             const movieProvider = document.createElement("h1");
-            const aeProviders = movie.providers.AE || [];
-            movieProvider.textContent = "Provider: " + aeProviders.join(', ');
+            const auProviders = movie.providers.AU || [];
+            movieProvider.textContent = "Provider: " + auProviders.join(', ');
             movieContainer.appendChild(movieProvider);
 
             document.getElementById("movieImage").appendChild(movieTitle);
             document.getElementById("movieImage").appendChild(movieImage);
             document.getElementById("movieImage").appendChild(movieProvider);
             document.getElementById("movieDetails").appendChild(movieContainer);
+            // document.getElementById("movieDetails").appendChild(url)
+            document.getElementById("movieDetails").innerHTML += `<a href=${url} target="_blank" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Watch Now</a>`;
         };
     </script>
 </body>

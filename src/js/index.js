@@ -67,11 +67,11 @@ function onClick() {
   window.onclick = function (event) {
     var eraseMoviename = document.getElementById("movieName");
     var eraseMovieOverview = document.getElementById("movieOverview");
-    // if (event.target == modal) {
-    //   modal.style.display = "none";
-    //   eraseMoviename.textContent = "";
-    //   eraseMovieOverview.textContent = "";
-    // }
+    if (event.target == modal) {
+      modal.style.display = "none";
+      eraseMoviename.textContent = "";
+      eraseMovieOverview.textContent = "";
+    }
   };
 }
 
