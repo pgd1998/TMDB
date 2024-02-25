@@ -1,6 +1,5 @@
 function onClick() {
   var search = document.getElementById("search");
-  
 
   search.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
@@ -16,19 +15,23 @@ function onClick() {
             "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMTE2YTY3OGYxMzZmNzU2YTVlOTI5ZjU2YWRhNzFiNCIsInN1YiI6IjY1ZDgwNTIxOTQ0YTU3MDE2MzIzYTkzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Nen7Oln3vKJzKnc5LjdWZ4_TzxO-YseDiOwLRASDkC8",
         },
       };
-        fetch(url, options)
-            .then((res) => res.json())
-            .then((json) => {
-                if (json.results && json.results.length > 0) {
-                  const moviedetails = json.results;
-                  console.log("movie details", moviedetails); 
-                    localStorage.setItem('moviedetails', JSON.stringify(moviedetails));
-                    console.log("movie details", localStorage.getItem('moviedetails'));
-                    window.location.href = "movieDetails.html";
-                    } else {
+      fetch(url, options)
+        .then((res) => res.json())
+        .then((json) => {
+          if (json.results && json.results.length > 0) {
+            const moviedetails = json.results.map((movie) => {
+              return {
+                ...movie,
+                poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+              };
+            });
+            localStorage.setItem("moviedetails", JSON.stringify(moviedetails));
+            console.log("movie details", localStorage.getItem("moviedetails"));
+            window.location.href = "movieDetails.html";
+          } else {
             alert("No movie found");
           }
-            })
+        })
         .catch((err) => console.error("error:" + err));
     }
   });
@@ -55,4 +58,3 @@ function onClick() {
 function back() {
   window.location.href = "index.html";
 }
-
