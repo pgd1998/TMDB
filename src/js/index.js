@@ -5,7 +5,7 @@ function onClick() {
   search.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       var movieName = search.value;
-      const url = `https://api.themoviedb.org/3/search/keyword?page=1&query=${encodeURIComponent(
+      const url = `https://api.themoviedb.org/3/search/multi?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(
         movieName
       )}`;
       const options = {
@@ -20,7 +20,8 @@ function onClick() {
             .then((res) => res.json())
             .then((json) => {
                 if (json.results && json.results.length > 0) {
-                const moviedetails = json.results[0];
+                  const moviedetails = json.results;
+                  console.log("movie details", moviedetails); 
                     localStorage.setItem('moviedetails', JSON.stringify(moviedetails));
                     console.log("movie details", localStorage.getItem('moviedetails'));
                     window.location.href = "movieDetails.html";
